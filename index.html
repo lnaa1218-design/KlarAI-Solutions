@@ -1,71 +1,63 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KlarAI Solutions | AI for Modern Business</title>
-
-    <meta name="description" content="Practical AI solutions for modern businesses. AI chatbots, customer service automation and intelligent business solutions.">
+    <title>KlarAI Solutions | KI-Lösungen für Unternehmen</title>
+    <meta name="description" content="KlarAI Solutions hilft kleinen und mittelständischen Unternehmen, KI für Kundenservice, Automatisierung und Kommunikation einzusetzen.">
 
     <style>
-
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
             color: #172033;
-            background: #ffffff;
             line-height: 1.6;
+            background: #ffffff;
         }
 
-        /* =========================
-           NAVIGATION
-        ========================= */
-
         header {
+            background: #ffffff;
+            border-bottom: 1px solid #e8ecf2;
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e8ebf0;
         }
 
         .nav {
-            max-width: 1180px;
+            max-width: 1200px;
             margin: auto;
-            padding: 18px 25px;
+            padding: 18px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 23px;
+            font-size: 24px;
             font-weight: 800;
-            color: #101828;
-            text-decoration: none;
+            color: #14213d;
         }
 
         .logo span {
             color: #2563eb;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
         nav a {
-            margin-left: 30px;
             text-decoration: none;
-            color: #4b5565;
-            font-size: 15px;
+            color: #39445a;
             font-weight: 500;
         }
 
@@ -73,184 +65,133 @@
             color: #2563eb;
         }
 
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 720px;
+        .language-switcher {
             display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    rgba(7, 18, 40, 0.72),
-                    rgba(10, 25, 55, 0.78)
-                ),
-                url("https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=85");
-
-            background-size: cover;
-            background-position: center;
+            gap: 8px;
+            margin-left: 10px;
         }
 
-        .hero-content {
-            max-width: 1180px;
-            width: 100%;
-            margin: auto;
-            padding: 90px 25px;
+        .language-switcher button {
+            border: 1px solid #d9dee8;
+            background: #ffffff;
+            padding: 7px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .language-switcher button.active {
+            background: #eef4ff;
+            border-color: #2563eb;
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(15, 32, 61, 0.78), rgba(15, 32, 61, 0.78)),
+                url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=80")
+                center/cover;
             color: white;
         }
 
-        .hero-label {
-            display: inline-block;
-            padding: 8px 15px;
-            border: 1px solid rgba(255,255,255,0.35);
-            border-radius: 30px;
-            background: rgba(255,255,255,0.08);
-            font-size: 14px;
-            margin-bottom: 25px;
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 24px;
         }
 
         .hero h1 {
-            font-size: 64px;
-            line-height: 1.08;
-            max-width: 800px;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            max-width: 850px;
             margin-bottom: 25px;
-            letter-spacing: -1.5px;
-        }
-
-        .hero h1 span {
-            color: #72a8ff;
         }
 
         .hero p {
-            max-width: 650px;
-            font-size: 20px;
-            color: #e1e7f0;
+            font-size: 21px;
+            max-width: 720px;
             margin-bottom: 35px;
+            color: #e7edf8;
         }
 
         .button {
             display: inline-block;
-            padding: 15px 28px;
-            border-radius: 8px;
+            padding: 15px 25px;
             background: #2563eb;
             color: white;
             text-decoration: none;
+            border-radius: 9px;
             font-weight: 700;
-            transition: 0.25s;
+            transition: 0.2s;
         }
 
         .button:hover {
             background: #1d4ed8;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
-
-        .button-light {
-            margin-left: 12px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .button-light:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        /* =========================
-           INTRO
-        ========================= */
 
         section {
-            padding: 100px 25px;
+            padding: 90px 24px;
         }
 
         .container {
-            max-width: 1180px;
+            max-width: 1200px;
             margin: auto;
         }
 
         .section-title {
             text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
             font-size: 40px;
-            line-height: 1.2;
-            margin-bottom: 18px;
-            color: #101828;
+            margin-bottom: 12px;
+            color: #14213d;
         }
 
-        .section-intro {
-            text-align: center;
-            max-width: 680px;
-            margin: 0 auto 60px;
-            color: #667085;
-            font-size: 17px;
+        .section-title p {
+            color: #687386;
+            max-width: 700px;
+            margin: auto;
         }
-
-        /* =========================
-           SERVICES
-        ========================= */
 
         .services {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 28px;
         }
 
-        .service-card {
-            overflow: hidden;
-            border-radius: 15px;
+        .card {
             border: 1px solid #e5e9f0;
+            border-radius: 16px;
+            padding: 32px;
             background: white;
-            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(20, 33, 61, 0.06);
         }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 45px rgba(16,24,40,0.10);
+        .card-icon {
+            font-size: 38px;
+            margin-bottom: 18px;
         }
 
-        .service-image {
-            height: 210px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .image-chatbot {
-            background-image:
-                url("https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80");
-        }
-
-        .image-automation {
-            background-image:
-                url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80");
-        }
-
-        .image-business {
-            background-image:
-                url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80");
-        }
-
-        .service-content {
-            padding: 30px;
-        }
-
-        .service-content h3 {
-            font-size: 22px;
+        .card h3 {
+            font-size: 23px;
             margin-bottom: 12px;
+            color: #14213d;
         }
 
-        .service-content p {
-            color: #667085;
-            font-size: 15px;
+        .card p {
+            color: #687386;
         }
-
-        /* =========================
-           WHY AI
-        ========================= */
 
         .why {
-            background: #f6f8fc;
+            background: #f5f8fc;
         }
 
         .why-grid {
@@ -261,49 +202,36 @@
         }
 
         .why-image {
-            min-height: 450px;
+            width: 100%;
             border-radius: 18px;
-
-            background:
-                linear-gradient(
-                    rgba(15,35,70,0.25),
-                    rgba(15,35,70,0.25)
-                ),
-                url("https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=85");
-
-            background-size: cover;
-            background-position: center;
+            box-shadow: 0 20px 45px rgba(20, 33, 61, 0.12);
         }
 
-        .why-text h2 {
+        .why h2 {
             font-size: 40px;
-            line-height: 1.2;
             margin-bottom: 20px;
         }
 
-        .why-text p {
-            color: #667085;
-            margin-bottom: 20px;
+        .benefits {
+            list-style: none;
         }
 
-        .check {
-            margin: 15px 0;
-            font-weight: 600;
+        .benefits li {
+            margin: 17px 0;
+            font-size: 18px;
         }
 
-        .check span {
+        .benefits li::before {
+            content: "✓";
             color: #2563eb;
-            margin-right: 10px;
+            font-weight: bold;
+            margin-right: 12px;
         }
-
-        /* =========================
-           PROCESS
-        ========================= */
 
         .steps {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
+            gap: 28px;
         }
 
         .step {
@@ -311,105 +239,69 @@
             padding: 30px;
         }
 
-        .number {
+        .step-number {
             width: 55px;
             height: 55px;
+            margin: 0 auto 20px;
             border-radius: 50%;
             background: #2563eb;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 19px;
             font-weight: bold;
+            font-size: 21px;
         }
-
-        .step h3 {
-            margin-bottom: 12px;
-            font-size: 20px;
-        }
-
-        .step p {
-            color: #667085;
-            font-size: 15px;
-        }
-
-        /* =========================
-           CTA
-        ========================= */
 
         .cta {
-            position: relative;
-            text-align: center;
+            background: #14213d;
             color: white;
-
-            background:
-                linear-gradient(
-                    rgba(8,22,48,0.88),
-                    rgba(8,22,48,0.88)
-                ),
-                url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=2000&q=85");
-
-            background-size: cover;
-            background-position: center;
+            text-align: center;
         }
 
         .cta h2 {
             font-size: 42px;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .cta p {
-            color: #d5dbe5;
+            color: #dce4f2;
             margin-bottom: 30px;
-            font-size: 17px;
         }
-
-        /* =========================
-           FOOTER
-        ========================= */
 
         footer {
-            background: #080f1c;
-            color: #98a2b3;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 14px;
+            background: #0d1728;
+            color: #aeb9ca;
+            padding: 35px 24px;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        .footer-inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+        }
 
-        @media (max-width: 850px) {
+        .footer-links {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
 
-            nav {
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+            nav a {
                 display: none;
-            }
-
-            .nav {
-                justify-content: center;
-            }
-
-            .hero {
-                min-height: 650px;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .button {
-                margin-bottom: 10px;
-            }
-
-            .button-light {
-                margin-left: 0;
             }
 
             .services,
@@ -418,330 +310,293 @@
                 grid-template-columns: 1fr;
             }
 
-            .why-image {
-                min-height: 350px;
-                order: 2;
+            .hero {
+                min-height: 560px;
             }
 
-            .section-title {
-                font-size: 32px;
-            }
-
-            .why-text h2 {
-                font-size: 32px;
-            }
-
-            .cta h2 {
-                font-size: 32px;
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
             }
         }
-
     </style>
 </head>
 
 <body>
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <header>
-
     <div class="nav">
 
-        <a href="#" class="logo">
+        <div class="logo">
             Klar<span>AI</span>
-        </a>
+        </div>
 
         <nav>
-            <a href="#services">Services</a>
-            <a href="#why">Why AI</a>
-            <a href="#how">How It Works</a>
-            <a href="#contact">Contact</a>
+            <a href="#services" data-de="Leistungen" data-en="Services">Leistungen</a>
+            <a href="#why" data-de="Warum KI?" data-en="Why AI?">Warum KI?</a>
+            <a href="#process" data-de="So funktioniert's" data-en="How it works">So funktioniert's</a>
+            <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+
+            <div class="language-switcher">
+                <button id="deBtn" class="active" onclick="setLanguage('de')">🇩🇪 DE</button>
+                <button id="enBtn" onclick="setLanguage('en')">🇺🇸 EN</button>
+            </div>
         </nav>
 
     </div>
-
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
+<!-- HERO -->
 <section class="hero">
-
     <div class="hero-content">
 
-        <div class="hero-label">
-            Practical AI Solutions for Businesses
-        </div>
-
-        <h1>
-            Make Your Business
-            <span>Smarter.</span>
+        <h1
+            data-de="Machen Sie Ihr Unternehmen smarter."
+            data-en="Make Your Business Smarter.">
+            Machen Sie Ihr Unternehmen smarter.
         </h1>
 
-        <p>
-            We help small and medium-sized businesses use AI to improve
-            customer service, automate repetitive tasks and save valuable time.
+        <p
+            data-de="Wir helfen kleinen und mittelständischen Unternehmen, KI für besseren Kundenservice, automatisierte Abläufe und mehr Effizienz einzusetzen."
+            data-en="We help small and medium-sized businesses use AI to improve customer service, automate repetitive tasks and save valuable time.">
+            Wir helfen kleinen und mittelständischen Unternehmen, KI für besseren Kundenservice, automatisierte Abläufe und mehr Effizienz einzusetzen.
         </p>
 
-        <a href="#contact" class="button">
-            Let's Talk
-        </a>
-
-        <a href="#services" class="button button-light">
-            Explore Services
+        <a href="#contact" class="button"
+           data-de="Mehr erfahren"
+           data-en="Learn More">
+            Mehr erfahren
         </a>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     SERVICES
-========================= -->
-
+<!-- SERVICES -->
 <section id="services">
-
     <div class="container">
 
-        <h2 class="section-title">
-            AI That Works for Your Business
-        </h2>
+        <div class="section-title">
+            <h2 data-de="Unsere Leistungen" data-en="Our Services">
+                Unsere Leistungen
+            </h2>
 
-        <p class="section-intro">
-            Simple, practical AI solutions designed to solve real business
-            problems without unnecessary complexity.
-        </p>
-
+            <p
+                data-de="Praktische KI-Lösungen, die sich an Ihrem Unternehmen orientieren."
+                data-en="Practical AI solutions designed around your business.">
+                Praktische KI-Lösungen, die sich an Ihrem Unternehmen orientieren.
+            </p>
+        </div>
 
         <div class="services">
 
+            <div class="card">
+                <div class="card-icon">🤖</div>
 
-            <div class="service-card">
+                <h3 data-de="KI-Chatbots" data-en="AI Chatbots">
+                    KI-Chatbots
+                </h3>
 
-                <div class="service-image image-chatbot"></div>
-
-                <div class="service-content">
-
-                    <h3>AI Chatbots</h3>
-
-                    <p>
-                        Give your customers instant answers to common questions
-                        directly on your website — 24 hours a day.
-                    </p>
-
-                </div>
-
+                <p
+                    data-de="Intelligente Website-Chatbots beantworten häufige Kundenfragen rund um die Uhr und helfen Ihren Besuchern sofort weiter."
+                    data-en="Intelligent website chatbots answer common customer questions 24/7 and help your visitors instantly.">
+                    Intelligente Website-Chatbots beantworten häufige Kundenfragen rund um die Uhr und helfen Ihren Besuchern sofort weiter.
+                </p>
             </div>
 
 
-            <div class="service-card">
+            <div class="card">
+                <div class="card-icon">⚙️</div>
 
-                <div class="service-image image-automation"></div>
+                <h3 data-de="Automatisierung" data-en="Smart Automation">
+                    Automatisierung
+                </h3>
 
-                <div class="service-content">
-
-                    <h3>Smart Automation</h3>
-
-                    <p>
-                        Reduce repetitive work by using AI to handle routine
-                        customer communication and everyday tasks.
-                    </p>
-
-                </div>
-
+                <p
+                    data-de="Wir helfen dabei, wiederkehrende Aufgaben und Kommunikationsprozesse mit modernen KI-Tools effizienter zu gestalten."
+                    data-en="We help automate repetitive tasks and communication processes using modern AI tools.">
+                    Wir helfen dabei, wiederkehrende Aufgaben und Kommunikationsprozesse mit modernen KI-Tools effizienter zu gestalten.
+                </p>
             </div>
 
 
-            <div class="service-card">
+            <div class="card">
+                <div class="card-icon">💡</div>
 
-                <div class="service-image image-business"></div>
+                <h3 data-de="KI für Ihr Unternehmen" data-en="AI for Your Business">
+                    KI für Ihr Unternehmen
+                </h3>
 
-                <div class="service-content">
-
-                    <h3>AI for Your Business</h3>
-
-                    <p>
-                        We configure AI solutions around your company's
-                        information, services and customer needs.
-                    </p>
-
-                </div>
-
+                <p
+                    data-de="Gemeinsam finden wir heraus, wo KI in Ihrem Unternehmen sinnvoll eingesetzt werden kann."
+                    data-en="Together, we identify where AI can create real value for your business.">
+                    Gemeinsam finden wir heraus, wo KI in Ihrem Unternehmen sinnvoll eingesetzt werden kann.
+                </p>
             </div>
-
 
         </div>
-
     </div>
-
 </section>
 
 
-<!-- =========================
-     WHY AI
-========================= -->
-
-<section class="why" id="why">
-
+<!-- WHY AI -->
+<section id="why" class="why">
     <div class="container">
 
         <div class="why-grid">
 
-            <div class="why-image"></div>
-
-
-            <div class="why-text">
-
-                <h2>
-                    Spend Less Time on Repetitive Questions.
+            <div>
+                <h2
+                    data-de="Warum KI?"
+                    data-en="Why AI?">
+                    Warum KI?
                 </h2>
 
-                <p>
-                    Businesses receive the same questions from customers
-                    again and again.
-                </p>
+                <ul class="benefits">
 
-                <p>
-                    AI can handle many of these routine questions instantly,
-                    allowing your team to spend more time on work that
-                    actually requires people.
-                </p>
+                    <li
+                        data-de="Kunden schneller und rund um die Uhr unterstützen"
+                        data-en="Support customers faster, 24/7">
+                        Kunden schneller und rund um die Uhr unterstützen
+                    </li>
 
+                    <li
+                        data-de="Wiederkehrende Aufgaben reduzieren"
+                        data-en="Reduce repetitive tasks">
+                        Wiederkehrende Aufgaben reduzieren
+                    </li>
 
-                <div class="check">
-                    <span>✓</span>
-                    Available around the clock
-                </div>
+                    <li
+                        data-de="Mitarbeiter bei Routineaufgaben entlasten"
+                        data-en="Reduce routine workload for employees">
+                        Mitarbeiter bei Routineaufgaben entlasten
+                    </li>
 
-                <div class="check">
-                    <span>✓</span>
-                    Answers based on your business information
-                </div>
+                    <li
+                        data-de="Schneller auf Kundenanfragen reagieren"
+                        data-en="Respond to customer inquiries faster">
+                        Schneller auf Kundenanfragen reagieren
+                    </li>
 
-                <div class="check">
-                    <span>✓</span>
-                    Easy to integrate with your website
-                </div>
+                    <li
+                        data-de="Moderne Technologien ohne eigenes KI-Team nutzen"
+                        data-en="Use modern AI technology without building an in-house AI team">
+                        Moderne Technologien ohne eigenes KI-Team nutzen
+                    </li>
 
-                <div class="check">
-                    <span>✓</span>
-                    Designed for small and medium-sized businesses
-                </div>
-
+                </ul>
             </div>
+
+            <img
+                class="why-image"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+                alt="Business meeting">
 
         </div>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     HOW IT WORKS
-========================= -->
-
-<section id="how">
-
+<!-- PROCESS -->
+<section id="process">
     <div class="container">
 
-        <h2 class="section-title">
-            How It Works
-        </h2>
+        <div class="section-title">
+            <h2
+                data-de="So funktioniert's"
+                data-en="How It Works">
+                So funktioniert's
+            </h2>
 
-        <p class="section-intro">
-            Getting started with AI doesn't have to be complicated.
-        </p>
+            <p
+                data-de="Ein einfacher Prozess ohne unnötige Komplexität."
+                data-en="A simple process without unnecessary complexity.">
+                Ein einfacher Prozess ohne unnötige Komplexität.
+            </p>
+        </div>
 
 
         <div class="steps">
 
-
             <div class="step">
+                <div class="step-number">1</div>
 
-                <div class="number">
-                    1
-                </div>
-
-                <h3>
-                    Tell Us About Your Business
+                <h3
+                    data-de="Kennenlernen"
+                    data-en="Consultation">
+                    Kennenlernen
                 </h3>
 
-                <p>
-                    We learn about your services, your customers and the
-                    questions they ask most often.
+                <p
+                    data-de="Wir besprechen Ihr Unternehmen und finden heraus, wo KI sinnvoll eingesetzt werden kann."
+                    data-en="We learn about your business and identify where AI can be useful.">
+                    Wir besprechen Ihr Unternehmen und finden heraus, wo KI sinnvoll eingesetzt werden kann.
                 </p>
-
             </div>
 
 
             <div class="step">
+                <div class="step-number">2</div>
 
-                <div class="number">
-                    2
-                </div>
-
-                <h3>
-                    We Build Your Solution
+                <h3
+                    data-de="Umsetzung"
+                    data-en="Implementation">
+                    Umsetzung
                 </h3>
 
-                <p>
-                    Your AI assistant is configured using the information
-                    your business wants customers to access.
+                <p
+                    data-de="Wir erstellen und konfigurieren die passende KI-Lösung für Ihre Website und Ihre Anforderungen."
+                    data-en="We build and configure the right AI solution for your website and requirements.">
+                    Wir erstellen und konfigurieren die passende KI-Lösung für Ihre Website und Ihre Anforderungen.
                 </p>
-
             </div>
 
 
             <div class="step">
+                <div class="step-number">3</div>
 
-                <div class="number">
-                    3
-                </div>
-
-                <h3>
-                    Go Live
+                <h3
+                    data-de="Start & Betreuung"
+                    data-en="Launch & Support">
+                    Start & Betreuung
                 </h3>
 
-                <p>
-                    Your AI assistant is added to your website and becomes
-                    available to your customers.
+                <p
+                    data-de="Nach dem Start kümmern wir uns bei Bedarf um Updates, Anpassungen und laufende Betreuung."
+                    data-en="After launch, we can provide updates, adjustments and ongoing support when needed.">
+                    Nach dem Start kümmern wir uns bei Bedarf um Updates, Anpassungen und laufende Betreuung.
                 </p>
-
             </div>
-
 
         </div>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     CONTACT CTA
-========================= -->
-
-<section class="cta" id="contact">
+<!-- CTA -->
+<section id="contact" class="cta">
 
     <div class="container">
 
-        <h2>
-            Ready to Explore AI?
+        <h2
+            data-de="Bereit für den nächsten Schritt?"
+            data-en="Ready to Explore AI?">
+            Bereit für den nächsten Schritt?
         </h2>
 
-        <p>
-            Let's find a practical AI solution for your business.
+        <p
+            data-de="Lassen Sie uns gemeinsam herausfinden, wie KI Ihr Unternehmen unterstützen kann."
+            data-en="Let's explore how AI can support your business.">
+            Lassen Sie uns gemeinsam herausfinden, wie KI Ihr Unternehmen unterstützen kann.
         </p>
 
-        <a href="mailto:hello@example.com" class="button">
-            Contact Us
+        <a href="mailto:hello@example.com" class="button"
+           data-de="Kontakt aufnehmen"
+           data-en="Get in Touch">
+            Kontakt aufnehmen
         </a>
 
     </div>
@@ -749,89 +604,126 @@
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
+<!-- FOOTER -->
 <footer>
 
-    © 2026 KlarAI Solutions. All rights reserved.
+    <div class="footer-inner">
+
+        <div>
+            © 2026 KlarAI Solutions
+        </div>
+
+        <div class="footer-links">
+
+            <a href="impressum.html"
+               data-de="Impressum"
+               data-en="Legal Notice">
+                Impressum
+            </a>
+
+            <a href="datenschutz.html"
+               data-de="Datenschutz"
+               data-en="Privacy Policy">
+                Datenschutz
+            </a>
+
+            <a href="#contact"
+               data-de="Kontakt"
+               data-en="Contact">
+                Kontakt
+            </a>
+
+        </div>
+
+    </div>
 
 </footer>
 
 
-<!-- =========================
-     CHATBASE AI CHATBOT
-========================= -->
+<script>
 
+function setLanguage(language) {
+
+    document.documentElement.lang = language;
+
+    const elements = document.querySelectorAll("[data-de]");
+
+    elements.forEach(function(element) {
+
+        if (language === "de") {
+            element.textContent = element.getAttribute("data-de");
+        } else {
+            element.textContent = element.getAttribute("data-en");
+        }
+
+    });
+
+    document.getElementById("deBtn").classList.remove("active");
+    document.getElementById("enBtn").classList.remove("active");
+
+    if (language === "de") {
+        document.getElementById("deBtn").classList.add("active");
+    } else {
+        document.getElementById("enBtn").classList.add("active");
+    }
+
+    if (language === "de") {
+        document.title = "KlarAI Solutions | KI-Lösungen für Unternehmen";
+    } else {
+        document.title = "KlarAI Solutions | AI Solutions for Business";
+    }
+}
+
+</script>
+
+<!-- CHATBASE AI CHATBOT -->
 <script>
 (function(){
-
     if(!window.chatbase ||
        window.chatbase("getState") !== "initialized"){
 
         window.chatbase = (...arguments) => {
-
             if(!window.chatbase.q){
                 window.chatbase.q = []
             }
 
             window.chatbase.q.push(arguments)
-
         };
 
         window.chatbase = new Proxy(
             window.chatbase,
             {
                 get(target,prop){
-
                     if(prop === "q"){
                         return target.q
                     }
 
                     return (...args) =>
                         target(prop,...args)
-
                 }
             }
         )
     }
 
-
     const onLoad = function(){
 
         const script = document.createElement("script");
 
-        script.src =
-            "https://www.chatbase.co/embed.min.js";
-
-        script.id =
-            "-G_rVKsrtuWttXkv4WC-T";
-
-        script.domain =
-            "www.chatbase.co";
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "-G_rVKsrtuWttXkv4WC-T";
+        script.domain = "www.chatbase.co";
 
         document.body.appendChild(script)
-
     };
 
-
     if(document.readyState === "complete"){
-
         onLoad()
-
     } else {
-
-        window.addEventListener(
-            "load",
-            onLoad
-        )
-
+        window.addEventListener("load", onLoad)
     }
 
 })();
 </script>
-
 
 </body>
 </html>
