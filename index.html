@@ -4,313 +4,182 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KlarAI Solutions | KI-Lösungen für Unternehmen</title>
-<meta name="description" content="KlarAI Solutions baut KI-Assistenten und Automatisierungen für kleine und mittelständische Unternehmen.">
+<meta name="description" content="KlarAI Solutions richtet KI-Assistenten für Ihre Website ein: Kundenfragen beantworten, Kontakte sammeln, Termine vermitteln. Rund um die Uhr, DSGVO-konform.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#f2f5f7; --white:#fff; --ink:#0f2a3d; --ink-2:#4a5f6e;
-  --petrol:#0f2a3d; --petrol-2:#17394f; --saffron:#f2b705; --line:#d6dee4;
-  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif;
-  --body:"Instrument Sans","Segoe UI",Helvetica,Arial,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
-
-/* header */
-header{position:sticky;top:0;z-index:50;background:rgba(242,245,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{font-family:var(--head);font-weight:700;font-size:23px;text-decoration:none;letter-spacing:-.02em}
-.logo i{font-style:normal;background:var(--saffron);padding:0 6px;border-radius:5px;margin-left:2px}
-nav{display:flex;align-items:center;gap:30px}
-nav a{text-decoration:none;font-weight:500;font-size:15.5px;color:var(--ink-2)}
-nav a:hover{color:var(--ink)}
-.lang{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;background:var(--white)}
-.lang button{border:0;background:none;padding:6px 13px;font:600 13px var(--body);cursor:pointer;color:var(--ink-2)}
-.lang button.active{background:var(--ink);color:#fff}
-
-/* hero */
-.hero{padding:84px 0 96px}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-h1{font-family:var(--head);font-weight:700;font-size:clamp(40px,5.4vw,66px);line-height:1.02;letter-spacing:-.035em;margin-bottom:24px}
-.lead{font-size:19px;color:var(--ink-2);max-width:520px;margin-bottom:34px}
-.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;padding:15px 28px;border-radius:10px;transition:background .2s}
-.btn:hover{background:var(--petrol-2)}
-.btn.alt{background:var(--ink);}
-.note{margin-top:18px;font-size:14.5px;color:var(--ink-2)}
-
-.chat{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 24px 60px -30px rgba(15,42,61,.35)}
-.chat-top{display:flex;align-items:center;gap:10px;padding-bottom:16px;border-bottom:1px solid var(--line);font-weight:600;font-size:15px}
-.dot{width:9px;height:9px;border-radius:50%;background:#2fa66a}
-.msgs{display:flex;flex-direction:column;gap:12px;padding:20px 0 6px}
-.m{max-width:84%;padding:11px 15px;border-radius:16px;font-size:15.5px;line-height:1.5}
-.m.u{align-self:flex-end;background:var(--petrol);color:#fff;border-bottom-right-radius:4px}
-.m.b{align-self:flex-start;background:#e9eef2;border-bottom-left-radius:4px}
-.m.b b{display:block;font-size:12.5px;color:var(--ink-2);font-weight:600;margin-bottom:2px}
-.m{opacity:0;animation:in .45s forwards}
-.m:nth-child(1){animation-delay:.3s}.m:nth-child(2){animation-delay:1.1s}.m:nth-child(3){animation-delay:2s}.m:nth-child(4){animation-delay:2.8s}
-@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-
-/* services: rows, not cards */
-.block{padding:96px 0}
-h2{font-family:var(--head);font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
-.head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
-.head p{color:var(--ink-2);max-width:460px}
-.rows{border-top:1px solid var(--ink)}
-.row{display:grid;grid-template-columns:.9fr 1.4fr .6fr;gap:40px;padding:34px 0;border-bottom:1px solid var(--line);align-items:start}
-.row h3{font-family:var(--head);font-size:26px;letter-spacing:-.02em;line-height:1.15}
-.row p{color:var(--ink-2)}
-.tag{justify-self:end;background:var(--saffron);color:var(--ink);font-weight:600;font-size:14px;padding:5px 12px;border-radius:99px}
-
-/* why */
-.why{background:var(--petrol);color:#fff}
-.why .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
-.why h2{position:sticky;top:110px}
-.why ul{list-style:none}
-.why li{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:20px;display:flex;gap:18px;align-items:baseline}
-.why li:first-child{border-top:1px solid rgba(255,255,255,.16)}
-.why li::before{content:"";flex:none;width:12px;height:12px;background:var(--saffron);border-radius:3px;transform:translateY(1px)}
-
-/* process: a true sequence */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;counter-reset:s}
-.steps::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--line)}
-.step{position:relative;padding-right:40px}
-.n{position:relative;width:56px;height:56px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:21px;margin-bottom:24px}
-.step:first-child .n{background:var(--saffron);border-color:var(--saffron)}
-.step h3{font-family:var(--head);font-size:24px;margin-bottom:8px;letter-spacing:-.02em}
-.step p{color:var(--ink-2)}
-
-
-/* pricing */
-.plans{overflow-x:auto;border:1px solid var(--ink);border-radius:16px;background:var(--white)}
-table{width:100%;min-width:760px;border-collapse:collapse;font-size:15.5px}
-th,td{padding:14px 18px;text-align:center;border-bottom:1px solid var(--line)}
-th:first-child,td:first-child{text-align:left;width:34%}
-thead th{padding:26px 18px 22px;vertical-align:top;font-weight:500}
-thead .nm{font-family:var(--head);font-weight:700;font-size:22px;display:block}
-thead .pr{display:block;font-size:15px;color:var(--ink-2);margin-top:2px}
-thead .pr b{font-family:var(--head);font-size:30px;color:var(--ink);letter-spacing:-.02em}
-th.hl,td.hl{background:#fff6d6}
-tbody tr:last-child td{border-bottom:0}
-.y{color:#1c8a55;font-weight:700}.x{color:#aab6bf}
-.vol td{font-weight:600}
-.fine{margin-top:18px;color:var(--ink-2);font-size:15px;max-width:760px}
-.plans .btn{padding:10px 20px;font-size:15px;margin-top:14px}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:#fff}
-/* faq */
-.faq{max-width:820px}
-details{border-bottom:1px solid var(--line);padding:4px 0}
-details:first-of-type{border-top:1px solid var(--ink)}
-summary{cursor:pointer;list-style:none;font-family:var(--head);font-weight:500;font-size:21px;padding:20px 40px 20px 0;position:relative;letter-spacing:-.01em}
+:root{--bg:#f5f7f5;--w:#fff;--ink:#13201a;--mute:#56665e;--g:#0f4c3a;--gd:#0a3226;--mint:#e3efe8;--line:#dce4df;--amber:#e39b2d;
+--f:"Schibsted Grotesk","Segoe UI",system-ui,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:inherit}:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{letter-spacing:-.028em;line-height:1.1}
+h1{font-size:clamp(40px,5.2vw,64px);font-weight:800}
+h2{font-size:clamp(30px,3.6vw,44px);font-weight:700}
+h3{font-size:21px;font-weight:700;letter-spacing:-.015em}
+header{position:sticky;top:0;z-index:50;background:rgba(245,247,245,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;text-decoration:none;letter-spacing:-.03em}
+.logo svg{width:30px;height:30px}.logo em{font-style:normal;color:var(--g)}
+nav.main{display:flex;align-items:center;gap:28px}
+nav.main a:not(.btn){text-decoration:none;font-size:15.5px;font-weight:500;color:var(--mute)}
+nav.main a:not(.btn):hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--w)}
+.lang button{border:0;background:none;padding:6px 11px;font:600 13px var(--f);cursor:pointer;color:var(--mute)}
+.lang button.active{background:var(--g);color:#fff}
+.btn{display:inline-block;background:var(--g);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:14px 26px;border-radius:9px;transition:background .2s;border:2px solid var(--g);text-align:center}
+.btn:hover{background:var(--gd);border-color:var(--gd)}
+.btn.sm{padding:9px 18px;font-size:15px}
+.btn.out{background:transparent;color:var(--g)}.btn.out:hover{background:var(--g);color:#fff}
+.btn.amb{background:var(--amber);border-color:var(--amber);color:#1b1305}.btn.amb:hover{background:#cf8a20;border-color:#cf8a20}
+.hero{padding:76px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
+.lead{font-size:19.5px;color:var(--mute);max-width:540px;margin:22px 0 32px}
+.acts{display:flex;gap:14px;flex-wrap:wrap}
+.trust{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:36px;padding:0;list-style:none;font-size:15px;font-weight:500;color:var(--mute)}
+.trust li::before{content:"✓";color:var(--g);font-weight:800;margin-right:8px}
+.browser{background:var(--w);border:1px solid var(--line);border-radius:14px;box-shadow:0 30px 70px -35px rgba(10,50,38,.45);overflow:hidden}
+.bt{display:flex;align-items:center;gap:7px;padding:12px 16px;background:#eef2ef;border-bottom:1px solid var(--line)}
+.bt i{width:10px;height:10px;border-radius:50%;background:#c9d3cd}
+.bt span{margin-left:10px;flex:1;background:var(--w);border-radius:6px;padding:3px 12px;font-size:13px;color:var(--mute)}
+.page{position:relative;padding:26px 26px 0;min-height:420px}
+.sk{height:12px;border-radius:6px;background:#e7ede9;margin-bottom:11px}
+.sk.h{height:22px;width:62%;background:#d5e1da;margin-bottom:16px}
+.sk.b{height:70px;border-radius:10px;margin:18px 0}
+.chat{position:absolute;right:20px;bottom:20px;width:min(310px,88%);background:var(--w);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px -16px rgba(10,50,38,.4);overflow:hidden}
+.ch{background:var(--g);color:#fff;padding:12px 16px;font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:9px}
+.ch::before{content:"";width:8px;height:8px;border-radius:50%;background:#6fe3a4}
+.ms{padding:14px;display:flex;flex-direction:column;gap:9px}
+.m{font-size:14.5px;line-height:1.45;padding:9px 13px;border-radius:12px;max-width:88%;opacity:0;animation:in .4s forwards}
+.m.u{align-self:flex-end;background:var(--mint)}.m.b{align-self:flex-start;background:#f0f3f1}
+.m:nth-child(1){animation-delay:.4s}.m:nth-child(2){animation-delay:1.3s}.m:nth-child(3){animation-delay:2.2s}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sec{padding:92px 0}
+.sh{max-width:680px;margin-bottom:52px}.sh p{color:var(--mute);margin-top:14px;font-size:18px}
+.sh.c{margin-left:auto;margin-right:auto;text-align:center}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 40px}
+.ft{border-top:3px solid var(--g);padding-top:22px}
+.ft svg{width:34px;height:34px;stroke:var(--g);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:16px}
+.ft h3{margin-bottom:9px}.ft p{color:var(--mute);font-size:16.5px}
+.dark{background:var(--gd);color:#fff}
+.dark .sh p{color:#b5cbc1}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;position:relative}
+.st::before{content:"";position:absolute;top:27px;left:56px;right:20px;height:2px;background:rgba(255,255,255,.2)}
+.n{position:relative;width:56px;height:56px;border-radius:50%;background:var(--gd);border:2px solid var(--amber);color:var(--amber);display:grid;place-items:center;font-weight:800;font-size:21px;margin-bottom:22px}
+.st h3{margin-bottom:8px}.st p{color:#b5cbc1}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+.plan{background:var(--w);border:1px solid var(--line);border-radius:14px;padding:28px 24px;display:flex;flex-direction:column}
+.plan.hl{background:var(--g);color:#fff;border-color:var(--g);position:relative}
+.plan .tag{position:absolute;top:-13px;left:24px;background:var(--amber);color:#1b1305;font-size:13px;font-weight:700;padding:3px 12px;border-radius:99px}
+.plan h3{font-size:20px}
+.price{margin:12px 0 4px;font-size:42px;font-weight:800;letter-spacing:-.03em}
+.price small{font-size:15px;font-weight:500;color:var(--mute);letter-spacing:0}.hl .price small{color:#b5cbc1}
+.vol{font-size:14.5px;color:var(--mute);padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.hl .vol{color:#b5cbc1;border-color:rgba(255,255,255,.22)}
+.plan ul{list-style:none;flex:1;margin-bottom:24px;font-size:15px}
+.plan li{padding:5px 0 5px 26px;position:relative;line-height:1.4}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--g);font-weight:800}
+.hl li::before{color:var(--amber)}
+.plan li.no{color:#92a09a}.plan li.no::before{content:"–";color:#b3beb8}
+.hl li.no{color:#8fb0a2}.hl li.no::before{color:#8fb0a2}
+.plan .btn{width:100%}.hl .btn{background:var(--amber);border-color:var(--amber);color:#1b1305}
+.fine{margin-top:22px;color:var(--mute);font-size:15px}
+.ent{margin-top:28px;background:var(--mint);border-radius:14px;padding:30px 34px;display:flex;justify-content:space-between;align-items:center;gap:30px}
+.ent h3{margin-bottom:6px}.ent p{color:var(--mute);max-width:640px}
+.faq{max-width:820px;margin:0 auto}
+details{border-bottom:1px solid var(--line)}details:first-of-type{border-top:1px solid var(--ink)}
+summary{cursor:pointer;list-style:none;font-weight:600;font-size:19px;padding:20px 44px 20px 0;position:relative}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:4px;top:15px;font-size:30px;font-weight:400;transition:transform .2s}
+summary::after{content:"+";position:absolute;right:4px;top:13px;font-size:30px;font-weight:400;color:var(--g);transition:transform .2s}
 details[open] summary::after{transform:rotate(45deg)}
-details p{color:var(--ink-2);padding:0 40px 22px 0;max-width:680px}
-
-/* cta */
-.cta{background:var(--saffron);padding:88px 0}
+details p{color:var(--mute);padding:0 44px 22px 0}
+.cta{background:var(--mint);padding:84px 0}
 .cta .wrap{display:flex;justify-content:space-between;align-items:center;gap:48px}
-.cta h2{max-width:640px;margin-bottom:12px}
-.cta p{max-width:520px}
-
-footer{background:var(--petrol);color:#b9c8d3;padding:34px 0;font-size:15px}
-.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-.foot nav{gap:24px}
-.foot a{color:#d9e4ec;text-decoration:none;font-size:15px}
-.foot a:hover{color:#fff}
-
-@media (max-width:860px){
-  nav a{display:none}
-  .hero{padding:56px 0 64px}
-  .hero .wrap,.head,.why .wrap,.steps{grid-template-columns:1fr}
-  .hero .wrap{gap:44px}.head{gap:16px}.why .wrap{gap:32px}
-  .why h2{position:static}
-  .row{grid-template-columns:1fr;gap:10px}.tag{justify-self:start;order:-1}
-  .steps::before{display:none}.step{padding:0 0 32px}
-  .cta .wrap{flex-direction:column;align-items:flex-start}
-  .block{padding:68px 0}
-}
-@media (prefers-reduced-motion:reduce){.m{animation:none;opacity:1}html{scroll-behavior:auto}}
+.cta h2{max-width:660px;margin-bottom:12px}.cta p{color:var(--mute);max-width:520px}
+footer{background:var(--ink);color:#aab8b1;padding:56px 0 30px;font-size:15px}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.14)}
+footer .logo{color:#fff;margin-bottom:12px}footer .logo em{color:#6fe3a4}
+footer h4{color:#fff;font-size:15px;margin-bottom:12px}
+footer ul{list-style:none}footer li{margin-bottom:8px}footer a{text-decoration:none}footer a:hover{color:#fff}
+.cp{padding-top:24px}
+@media(max-width:900px){
+nav.main a:not(.btn){display:none}
+.hero{padding:48px 0 60px}.hero .wrap,.grid3,.st,.fg{grid-template-columns:1fr}.hero .wrap{gap:44px}
+.plans{grid-template-columns:1fr 1fr}
+.st::before{display:none}.sec{padding:64px 0}
+.ent,.cta .wrap{flex-direction:column;align-items:flex-start}}
+@media(max-width:560px){.plans{grid-template-columns:1fr}nav.main .btn{display:none}}
+@media(prefers-reduced-motion:reduce){.m{animation:none;opacity:1}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap bar">
-    <a href="#" class="logo">Klar<i>AI</i></a>
-    <nav>
-      <a href="#services" data-de="Leistungen" data-en="Services">Leistungen</a>
-      <a href="#why" data-de="Vorteile" data-en="Benefits">Vorteile</a>
-      <a href="#process" data-de="Ablauf" data-en="Process">Ablauf</a>
-      <a href="#pricing" data-de="Preise" data-en="Pricing">Preise</a>
-      <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
-      <div class="lang">
-        <button id="deBtn" class="active" onclick="setLanguage('de')">DE</button>
-        <button id="enBtn" onclick="setLanguage('en')">EN</button>
-      </div>
-    </nav>
-  </div>
-</header>
-
+<header><div class="wrap bar">
+<a href="#" class="logo" aria-label="KlarAI"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c3a"/><path d="M8 9h16v10h-8l-5 4v-4H8z" fill="#fff"/><circle cx="13" cy="14" r="1.4" fill="#0f4c3a"/><circle cx="16" cy="14" r="1.4" fill="#0f4c3a"/><circle cx="19" cy="14" r="1.4" fill="#0f4c3a"/></svg><span>Klar<em>AI</em></span></a>
+<nav class="main">
+<a href="#features" data-de="Leistungen" data-en="Features">Leistungen</a><a href="#process" data-de="Ablauf" data-en="Process">Ablauf</a><a href="#pricing" data-de="Preise" data-en="Pricing">Preise</a><a href="#faq" data-de="FAQ" data-en="FAQ">FAQ</a>
+<div class="lang"><button id="deBtn" class="active" onclick="setLanguage('de')">DE</button><button id="enBtn" onclick="setLanguage('en')">EN</button></div>
+<a class="btn sm" href="#contact" data-de="Erstgespräch" data-en="Intro call">Erstgespräch</a>
+</nav></div></header>
 <main>
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <h1 data-de="Ihr Team schläft nachts. Ihr KI-Assistent nicht."
-          data-en="Your team sleeps at night. Your AI assistant doesn't.">Ihr Team schläft nachts. Ihr KI-Assistent nicht.</h1>
-      <p class="lead" data-de="Wir bauen KI-Assistenten und Automatisierungen für kleine und mittelständische Unternehmen: Kundenfragen werden sofort beantwortet, Routinearbeit erledigt sich von selbst."
-         data-en="We build AI assistants and automations for small and medium-sized businesses: customer questions get answered instantly and routine work takes care of itself.">Wir bauen KI-Assistenten und Automatisierungen für kleine und mittelständische Unternehmen: Kundenfragen werden sofort beantwortet, Routinearbeit erledigt sich von selbst.</p>
-      <a href="#contact" class="btn" data-de="Kostenloses Erstgespräch" data-en="Book a free intro call">Kostenloses Erstgespräch</a>
-    </div>
+<section class="hero"><div class="wrap">
+<div>
+<h1 data-de="Der KI-Assistent, der Website-Besucher zu Kunden macht" data-en="The AI assistant that turns website visitors into customers">Der KI-Assistent, der Website-Besucher zu Kunden macht</h1>
+<p class="lead" data-de="Er beantwortet Kundenfragen rund um die Uhr, direkt aus den Inhalten Ihrer eigenen Website. Wir richten ihn für Sie ein und betreuen ihn." data-en="It answers customer questions around the clock, straight from your own website content. We set it up and look after it for you.">Er beantwortet Kundenfragen rund um die Uhr, direkt aus den Inhalten Ihrer eigenen Website. Wir richten ihn für Sie ein und betreuen ihn.</p>
+<div class="acts"><a class="btn" href="#contact" data-de="Kostenloses Erstgespräch" data-en="Book a free intro call">Kostenloses Erstgespräch</a><a class="btn out" href="#pricing" data-de="Preise ansehen" data-en="See pricing">Preise ansehen</a></div>
+<ul class="trust"><li data-de="DSGVO-konform, EU-Hosting" data-en="GDPR-compliant, EU hosting">DSGVO-konform, EU-Hosting</li><li data-de="Ohne Programmierung" data-en="No coding needed">Ohne Programmierung</li><li data-de="Alle Sprachen" data-en="Every language">Alle Sprachen</li><li data-de="Fester Preis" data-en="Fixed price">Fester Preis</li></ul>
+</div>
+<div class="browser" aria-hidden="true">
+<div class="bt"><i></i><i></i><i></i><span>ihre-website.de</span></div>
+<div class="page"><div class="sk h"></div><div class="sk" style="width:90%"></div><div class="sk" style="width:76%"></div><div class="sk b"></div><div class="sk" style="width:84%"></div><div class="sk" style="width:55%"></div>
+<div class="chat"><div class="ch" data-de="Ihr Assistent" data-en="Your assistant">Ihr Assistent</div>
+<div class="ms"><div class="m u" data-de="Haben Sie morgen noch einen Termin frei?" data-en="Do you have an appointment free tomorrow?">Haben Sie morgen noch einen Termin frei?</div>
+<div class="m b" data-de="Ja, morgen um 10:30 und 14:00 Uhr. Welcher passt Ihnen?" data-en="Yes, tomorrow at 10:30 am and 2:00 pm. Which suits you?">Ja, morgen um 10:30 und 14:00 Uhr. Welcher passt Ihnen?</div>
+<div class="m u" data-de="14:00 Uhr, bitte." data-en="2:00 pm, please.">14:00 Uhr, bitte.</div></div></div>
+</div></div>
+</div></section>
 
-    <div class="chat" aria-label="Beispiel">
-      <div class="chat-top"><span class="dot"></span><span data-de="Assistent Ihres Unternehmens" data-en="Your company's assistant">Assistent Ihres Unternehmens</span></div>
-      <div class="msgs">
-        <div class="m u" data-de="Haben Sie morgen noch einen Termin frei?" data-en="Do you have an appointment free tomorrow?">Haben Sie morgen noch einen Termin frei?</div>
-        <div class="m b" data-de="Ja, morgen sind um 10:30 und 14:00 Uhr Termine frei. Welcher passt Ihnen?" data-en="Yes, tomorrow at 10:30 and 2:00 pm are open. Which suits you?">Ja, morgen sind um 10:30 und 14:00 Uhr Termine frei. Welcher passt Ihnen?</div>
-        <div class="m u" data-de="14:00 Uhr, bitte." data-en="2:00 pm, please.">14:00 Uhr, bitte.</div>
-        <div class="m b" data-de="Erledigt. Sie erhalten gleich eine Bestätigung per E-Mail." data-en="Done. A confirmation is on its way to your inbox.">Erledigt. Sie erhalten gleich eine Bestätigung per E-Mail.</div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="sec" id="features" style="padding-top:20px"><div class="wrap">
+<div class="sh"><h2 data-de="Mehr Anfragen beantworten, ohne mehr Personal" data-en="Answer more enquiries without more staff">Mehr Anfragen beantworten, ohne mehr Personal</h2><p data-de="Alles, was Ihr Unternehmen braucht, damit kein Interessent unbeantwortet bleibt." data-en="Everything your business needs so no prospect goes unanswered.">Alles, was Ihr Unternehmen braucht, damit kein Interessent unbeantwortet bleibt.</p></div>
+<div class="grid3"><div class="ft"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v11H8l-5 4z"/><path d="M8 10h8M8 13h5"/></svg><h3 data-de="Aus Besuchern werden Kontakte" data-en="Turns visitors into leads">Aus Besuchern werden Kontakte</h3><p data-de="Kann der Assistent eine Frage nicht beantworten, fragt er automatisch nach Kontaktdaten. Wer einen Termin möchte, sieht direkt einen Buchungs-Button. So geht keine Anfrage verloren, auch wenn Sie nicht erreichbar sind." data-en="When the assistant can’t answer a question, it automatically asks for contact details. Anyone who wants an appointment sees a booking button right away. No enquiry gets lost, even when you’re unavailable.">Kann der Assistent eine Frage nicht beantworten, fragt er automatisch nach Kontaktdaten. Wer einen Termin möchte, sieht direkt einen Buchungs-Button. So geht keine Anfrage verloren, auch wenn Sie nicht erreichbar sind.</p></div><div class="ft"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3 data-de="Rund um die Uhr erreichbar" data-en="Always on, day and night">Rund um die Uhr erreichbar</h3><p data-de="Nachts, am Wochenende und an Feiertagen: Ihr Assistent antwortet sofort und erkennt die Sprache Ihrer Kunden automatisch." data-en="Nights, weekends and public holidays: your assistant replies instantly and detects your customers’ language automatically.">Nachts, am Wochenende und an Feiertagen: Ihr Assistent antwortet sofort und erkennt die Sprache Ihrer Kunden automatisch.</p></div><div class="ft"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><h3 data-de="In Minuten startklar" data-en="Ready in minutes">In Minuten startklar</h3><p data-de="Wir lesen Ihre Website und Ihre FAQs ein, richten alles ein und liefern Ihnen eine einzige Zeile Code zum Einfügen. Kein Entwickler nötig." data-en="We read in your website and FAQs, set everything up and give you a single line of code to paste. No developer needed.">Wir lesen Ihre Website und Ihre FAQs ein, richten alles ein und liefern Ihnen eine einzige Zeile Code zum Einfügen. Kein Entwickler nötig.</p></div><div class="ft"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 8.5a4 4 0 100 7M7 11h6M7 13.5h6"/></svg><h3 data-de="Fester Preis, keine Überraschungen" data-en="Fixed price, no surprises">Fester Preis, keine Überraschungen</h3><p data-de="Alle KI-Kosten sind im Tarif enthalten. Sie wissen jeden Monat, was Sie zahlen, und können monatlich kündigen." data-en="All AI costs are included in the plan. You know exactly what you pay each month and can cancel monthly.">Alle KI-Kosten sind im Tarif enthalten. Sie wissen jeden Monat, was Sie zahlen, und können monatlich kündigen.</p></div><div class="ft"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c3 0 5-1 5-4l9-9a2.5 2.5 0 00-3.5-3.5l-9 9c-3 0-4 2-4 5z"/></svg><h3 data-de="Passend zu Ihrer Marke" data-en="Matches your brand">Passend zu Ihrer Marke</h3><p data-de="Farben, Avatar und Schrift passen wir an Ihren Auftritt an. Das Dashboard zeigt Top-Fragen und offene Themen." data-en="We adapt colours, avatar and font to your look. The dashboard shows top questions and open topics.">Farben, Avatar und Schrift passen wir an Ihren Auftritt an. Das Dashboard zeigt Top-Fragen und offene Themen.</p></div><div class="ft"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><h3 data-de="DSGVO-konform, Hosting in der EU" data-en="GDPR-compliant, hosted in the EU">DSGVO-konform, Hosting in der EU</h3><p data-de="Die KI läuft in der EU, Kundendaten werden nach 90 Tagen automatisch gelöscht und nie zum KI-Training genutzt." data-en="The AI runs in the EU, customer data is deleted automatically after 90 days and never used for AI training.">Die KI läuft in der EU, Kundendaten werden nach 90 Tagen automatisch gelöscht und nie zum KI-Training genutzt.</p></div></div></div></section>
 
-<section class="block" id="services" style="padding-top:24px">
-  <div class="wrap">
-    <div class="head">
-      <h2 data-de="Drei Wege, wie wir Ihnen Zeit zurückgeben" data-en="Three ways we give you your time back">Drei Wege, wie wir Ihnen Zeit zurückgeben</h2>
-      <p data-de="Keine Technik-Show. Wir setzen nur um, was in Ihrem Alltag spürbar etwas verbessert." data-en="No tech show. We only build what makes a noticeable difference in your day-to-day.">Keine Technik-Show. Wir setzen nur um, was in Ihrem Alltag spürbar etwas verbessert.</p>
-    </div>
-    <div class="rows">
-      <div class="row">
-        <h3 data-de="Chatbot für Ihre Website" data-en="Chatbot for your website">Chatbot für Ihre Website</h3>
-        <p data-de="Ihr Assistent beantwortet Fragen zu Preisen, Öffnungszeiten und Leistungen, rund um die Uhr und in Ihrem Ton." data-en="Your assistant answers questions about prices, opening hours and services, around the clock and in your tone of voice.">Ihr Assistent beantwortet Fragen zu Preisen, Öffnungszeiten und Leistungen, rund um die Uhr und in Ihrem Ton.</p>
-        <span class="tag" data-de="Kundenservice" data-en="Customer service">Kundenservice</span>
-      </div>
-      <div class="row">
-        <h3 data-de="Automatisierte Abläufe" data-en="Automated workflows">Automatisierte Abläufe</h3>
-        <p data-de="E-Mails sortieren, Anfragen weiterleiten, Formulare auswerten: Wir übernehmen die Aufgaben, die Ihr Team jeden Tag wiederholt." data-en="Sorting emails, routing enquiries, processing forms: we take over the tasks your team repeats every single day.">E-Mails sortieren, Anfragen weiterleiten, Formulare auswerten: Wir übernehmen die Aufgaben, die Ihr Team jeden Tag wiederholt.</p>
-        <span class="tag" data-de="Effizienz" data-en="Efficiency">Effizienz</span>
-      </div>
-      <div class="row">
-        <h3 data-de="KI-Beratung" data-en="AI consulting">KI-Beratung</h3>
-        <p data-de="Wir schauen gemeinsam auf Ihre Prozesse und zeigen, wo KI sich lohnt und wo nicht." data-en="Together we review your processes and show where AI pays off and where it doesn't.">Wir schauen gemeinsam auf Ihre Prozesse und zeigen, wo KI sich lohnt und wo nicht.</p>
-        <span class="tag" data-de="Orientierung" data-en="Direction">Orientierung</span>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="sec dark" id="process"><div class="wrap">
+<div class="sh"><h2 data-de="In drei Schritten zu Ihrem eigenen Assistenten" data-en="Your own assistant in three steps">In drei Schritten zu Ihrem eigenen Assistenten</h2><p data-de="Klar, verständlich und ohne Fachchinesisch." data-en="Clear and straightforward, without jargon.">Klar, verständlich und ohne Fachchinesisch.</p></div>
+<div class="st"><div><div class="n">1</div><h3 data-de="Zuhören" data-en="Listen">Zuhören</h3><p data-de="Wir lernen Ihr Unternehmen kennen und klären, wo ein Assistent Ihnen wirklich Arbeit abnimmt." data-en="We get to know your business and work out where an assistant genuinely takes work off your plate.">Wir lernen Ihr Unternehmen kennen und klären, wo ein Assistent Ihnen wirklich Arbeit abnimmt.</p></div><div><div class="n">2</div><h3 data-de="Einrichten" data-en="Set up">Einrichten</h3><p data-de="Wir trainieren den Assistenten mit Ihren Inhalten, stimmen Design und Verhalten ab und testen gemeinsam mit Ihnen." data-en="We train the assistant on your content, agree on design and behaviour and test it together with you.">Wir trainieren den Assistenten mit Ihren Inhalten, stimmen Design und Verhalten ab und testen gemeinsam mit Ihnen.</p></div><div><div class="n">3</div><h3 data-de="Live gehen" data-en="Go live">Live gehen</h3><p data-de="Sie fügen eine Zeile Code ein, fertig. Danach kümmern wir uns auf Wunsch um Updates und Anpassungen." data-en="You paste one line of code, done. Afterwards we handle updates and adjustments, if you want us to.">Sie fügen eine Zeile Code ein, fertig. Danach kümmern wir uns auf Wunsch um Updates und Anpassungen.</p></div></div></div></section>
 
-<section class="block why" id="why">
-  <div class="wrap">
-    <h2 data-de="Was sich für Sie ändert" data-en="What changes for you">Was sich für Sie ändert</h2>
-    <ul>
-      <li data-de="Kunden bekommen Antworten, sobald sie fragen, auch am Wochenende." data-en="Customers get answers the moment they ask, even on weekends.">Kunden bekommen Antworten, sobald sie fragen, auch am Wochenende.</li>
-      <li data-de="Ihr Team verliert weniger Zeit mit Wiederholungen." data-en="Your team loses less time to repetition.">Ihr Team verliert weniger Zeit mit Wiederholungen.</li>
-      <li data-de="Anfragen werden schneller bearbeitet und gehen nicht mehr unter." data-en="Enquiries are handled faster and stop slipping through the cracks.">Anfragen werden schneller bearbeitet und gehen nicht mehr unter.</li>
-      <li data-de="Sie nutzen moderne KI, ohne ein eigenes Technikteam aufzubauen." data-en="You use modern AI without building your own tech team.">Sie nutzen moderne KI, ohne ein eigenes Technikteam aufzubauen.</li>
-    </ul>
-  </div>
-</section>
+<section class="sec" id="pricing"><div class="wrap">
+<div class="sh c"><h2 data-de="Transparente Preise" data-en="Transparent pricing">Transparente Preise</h2><p data-de="Wählen Sie den Tarif, der zu Ihrem Anfragevolumen passt. Endpreise ohne versteckte KI- oder API-Kosten, monatlich kündbar." data-en="Choose the plan that matches your enquiry volume. Final prices with no hidden AI or API costs, cancel monthly.">Wählen Sie den Tarif, der zu Ihrem Anfragevolumen passt. Endpreise ohne versteckte KI- oder API-Kosten, monatlich kündbar.</p></div>
+<div class="plans"><div class="plan"><h3 data-de="Start" data-en="Start">Start</h3><div class="price">0 €<small> <span data-de="/ Monat" data-en="/ month">/ Monat</span></small></div><div class="vol" data-de="Antworten aus Ihren eigenen Inhalten" data-en="Answers from your own content">Antworten aus Ihren eigenen Inhalten</div><ul><li data-de="100 Nachrichten pro Monat" data-en="100 messages per month">100 Nachrichten pro Monat</li><li data-de="Reicht für rund 45 Gespräche" data-en="Enough for about 45 conversations">Reicht für rund 45 Gespräche</li><li data-de="Website-Inhalte einmalig eingelesen" data-en="Website content read in once">Website-Inhalte einmalig eingelesen</li><li class="" data-de="Gespräche mitlesen" data-en="Read every conversation">Gespräche mitlesen</li><li class="no" data-de="Kontaktdaten Ihrer Interessenten" data-en="Your leads’ contact details">Kontaktdaten Ihrer Interessenten</li><li class="no" data-de="Termin-Button im Chat" data-en="Booking button in the chat">Termin-Button im Chat</li><li class="no" data-de="Eigene Farben statt Vorlage" data-en="Your own colours, not a preset">Eigene Farben statt Vorlage</li><li class="no" data-de="Besucher können Fotos senden" data-en="Visitors can send photos">Besucher können Fotos senden</li><li class="no" data-de="Statistiken und offene Fragen" data-en="Statistics and unanswered questions">Statistiken und offene Fragen</li></ul><a class="btn"  href="mailto:hello@example.com" data-de="Kostenlos starten" data-en="Start for free">Kostenlos starten</a></div><div class="plan"><h3 data-de="Wachstum" data-en="Growth">Wachstum</h3><div class="price">39 €<small> <span data-de="/ Monat" data-en="/ month">/ Monat</span></small></div><div class="vol" data-de="Antworten aus Ihren eigenen Inhalten" data-en="Answers from your own content">Antworten aus Ihren eigenen Inhalten</div><ul><li data-de="4.000 Nachrichten pro Monat" data-en="4.000 messages per month">4.000 Nachrichten pro Monat</li><li data-de="Reicht für rund 1.800 Gespräche" data-en="Enough for about 1.800 conversations">Reicht für rund 1.800 Gespräche</li><li data-de="Website-Inhalte wöchentlich aktualisiert" data-en="Website content refreshed weekly">Website-Inhalte wöchentlich aktualisiert</li><li class="" data-de="Gespräche mitlesen" data-en="Read every conversation">Gespräche mitlesen</li><li class="" data-de="Kontaktdaten Ihrer Interessenten" data-en="Your leads’ contact details">Kontaktdaten Ihrer Interessenten</li><li class="" data-de="Termin-Button im Chat" data-en="Booking button in the chat">Termin-Button im Chat</li><li class="no" data-de="Eigene Farben statt Vorlage" data-en="Your own colours, not a preset">Eigene Farben statt Vorlage</li><li class="no" data-de="Besucher können Fotos senden" data-en="Visitors can send photos">Besucher können Fotos senden</li><li class="no" data-de="Statistiken und offene Fragen" data-en="Statistics and unanswered questions">Statistiken und offene Fragen</li></ul><a class="btn"  href="mailto:hello@example.com" data-de="Jetzt starten" data-en="Get started">Jetzt starten</a></div><div class="plan hl"><span class="tag" data-de="Beliebteste Wahl" data-en="Most popular">Beliebteste Wahl</span><h3 data-de="Pro" data-en="Pro">Pro</h3><div class="price">89 €<small> <span data-de="/ Monat" data-en="/ month">/ Monat</span></small></div><div class="vol" data-de="Antworten aus Ihren eigenen Inhalten" data-en="Answers from your own content">Antworten aus Ihren eigenen Inhalten</div><ul><li data-de="16.000 Nachrichten pro Monat" data-en="16.000 messages per month">16.000 Nachrichten pro Monat</li><li data-de="Reicht für rund 7.000 Gespräche" data-en="Enough for about 7.000 conversations">Reicht für rund 7.000 Gespräche</li><li data-de="Website-Inhalte alle 3 Tage aktualisiert" data-en="Website content refreshed every 3 days">Website-Inhalte alle 3 Tage aktualisiert</li><li class="" data-de="Gespräche mitlesen" data-en="Read every conversation">Gespräche mitlesen</li><li class="" data-de="Kontaktdaten Ihrer Interessenten" data-en="Your leads’ contact details">Kontaktdaten Ihrer Interessenten</li><li class="" data-de="Termin-Button im Chat" data-en="Booking button in the chat">Termin-Button im Chat</li><li class="" data-de="Eigene Farben statt Vorlage" data-en="Your own colours, not a preset">Eigene Farben statt Vorlage</li><li class="" data-de="Besucher können Fotos senden" data-en="Visitors can send photos">Besucher können Fotos senden</li><li class="" data-de="Statistiken und offene Fragen" data-en="Statistics and unanswered questions">Statistiken und offene Fragen</li></ul><a class="btn"  href="mailto:hello@example.com" data-de="Jetzt starten" data-en="Get started">Jetzt starten</a></div><div class="plan"><h3 data-de="Business" data-en="Business">Business</h3><div class="price">179 €<small> <span data-de="/ Monat" data-en="/ month">/ Monat</span></small></div><div class="vol" data-de="Antworten aus Ihren eigenen Inhalten" data-en="Answers from your own content">Antworten aus Ihren eigenen Inhalten</div><ul><li data-de="80.000 Nachrichten pro Monat" data-en="80.000 messages per month">80.000 Nachrichten pro Monat</li><li data-de="Reicht für rund 36.000 Gespräche" data-en="Enough for about 36.000 conversations">Reicht für rund 36.000 Gespräche</li><li data-de="Website-Inhalte täglich aktualisiert" data-en="Website content refreshed daily">Website-Inhalte täglich aktualisiert</li><li class="" data-de="Gespräche mitlesen" data-en="Read every conversation">Gespräche mitlesen</li><li class="" data-de="Kontaktdaten Ihrer Interessenten" data-en="Your leads’ contact details">Kontaktdaten Ihrer Interessenten</li><li class="" data-de="Termin-Button im Chat" data-en="Booking button in the chat">Termin-Button im Chat</li><li class="" data-de="Eigene Farben statt Vorlage" data-en="Your own colours, not a preset">Eigene Farben statt Vorlage</li><li class="" data-de="Besucher können Fotos senden" data-en="Visitors can send photos">Besucher können Fotos senden</li><li class="" data-de="Statistiken und offene Fragen" data-en="Statistics and unanswered questions">Statistiken und offene Fragen</li></ul><a class="btn"  href="mailto:hello@example.com" data-de="Jetzt starten" data-en="Get started">Jetzt starten</a></div></div>
+<p class="fine" data-de="Jeder Tarif enthält einen Chatbot, jeder weitere kostet 9 € pro Monat (nur in bezahlten Tarifen). Gezählt werden nur Besucherfragen, nicht die Antworten des Assistenten." data-en="Every plan includes one chatbot; each additional one costs €9 per month (paid plans only). Only visitor questions are counted, not the assistant’s replies.">Jeder Tarif enthält einen Chatbot, jeder weitere kostet 9 € pro Monat (nur in bezahlten Tarifen). Gezählt werden nur Besucherfragen, nicht die Antworten des Assistenten.</p>
+<div class="ent"><div><h3 data-de="Individuelle Lösung" data-en="Custom solution">Individuelle Lösung</h3><p data-de="Für größere Teams oder besondere Anforderungen: Wir legen Umfang, Kanäle und Preis gemeinsam mit Ihnen fest." data-en="For larger teams or special requirements: we agree scope, channels and price together with you.">Für größere Teams oder besondere Anforderungen: Wir legen Umfang, Kanäle und Preis gemeinsam mit Ihnen fest.</p></div><a class="btn out" href="mailto:hello@example.com" data-de="Angebot anfragen" data-en="Request a quote">Angebot anfragen</a></div>
+</div></section>
 
-<section class="block" id="process">
-  <div class="wrap">
-    <div class="head">
-      <h2 data-de="Vom ersten Gespräch bis zum Livegang" data-en="From first call to going live">Vom ersten Gespräch bis zum Livegang</h2>
-      <p data-de="Drei klare Schritte, ohne Fachchinesisch." data-en="Three clear steps, no jargon.">Drei klare Schritte, ohne Fachchinesisch.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="n">1</div>
-        <h3 data-de="Zuhören" data-en="Listen">Zuhören</h3>
-        <p data-de="Wir lernen Ihr Unternehmen kennen und finden heraus, wo KI Ihnen wirklich hilft." data-en="We get to know your business and find out where AI genuinely helps.">Wir lernen Ihr Unternehmen kennen und finden heraus, wo KI Ihnen wirklich hilft.</p>
-      </div>
-      <div class="step">
-        <div class="n">2</div>
-        <h3 data-de="Bauen" data-en="Build">Bauen</h3>
-        <p data-de="Wir entwickeln und konfigurieren die Lösung für Ihre Website und Ihre Anforderungen." data-en="We develop and configure the solution for your website and requirements.">Wir entwickeln und konfigurieren die Lösung für Ihre Website und Ihre Anforderungen.</p>
-      </div>
-      <div class="step">
-        <div class="n">3</div>
-        <h3 data-de="Starten &amp; begleiten" data-en="Launch &amp; support">Starten &amp; begleiten</h3>
-        <p data-de="Nach dem Livegang betreuen wir Updates und Anpassungen, wenn Sie das möchten." data-en="After go-live we handle updates and adjustments, if you want us to.">Nach dem Livegang betreuen wir Updates und Anpassungen, wenn Sie das möchten.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="sec" id="faq" style="padding-top:20px"><div class="wrap">
+<div class="sh c"><h2 data-de="Häufige Fragen" data-en="Frequently asked questions">Häufige Fragen</h2></div>
+<div class="faq"><details><summary data-de="Ist der Start-Tarif wirklich dauerhaft kostenlos?" data-en="Is the Start plan really free for good?">Ist der Start-Tarif wirklich dauerhaft kostenlos?</summary><p data-de="Ja. Sie erhalten 100 Besucherfragen pro Monat, einen Chatbot, keine Kreditkarte und kein Ablaufdatum. Gezählt werden nur Fragen Ihrer Besucher, nicht die Antworten." data-en="Yes. You get 100 visitor questions a month, one chatbot, no credit card and no expiry date. Only your visitors’ questions are counted, not the replies.">Ja. Sie erhalten 100 Besucherfragen pro Monat, einen Chatbot, keine Kreditkarte und kein Ablaufdatum. Gezählt werden nur Fragen Ihrer Besucher, nicht die Antworten.</p></details><details><summary data-de="Ist das nicht einfach ChatGPT?" data-en="Isn’t this just ChatGPT?">Ist das nicht einfach ChatGPT?</summary><p data-de="Nein. Ihr Assistent antwortet auf Basis Ihrer Website, Ihrer FAQs und Dokumente. Er spricht über Ihr Unternehmen, nicht über alles Mögliche." data-en="No. Your assistant answers from your website, FAQs and documents. It talks about your business, not about everything under the sun.">Nein. Ihr Assistent antwortet auf Basis Ihrer Website, Ihrer FAQs und Dokumente. Er spricht über Ihr Unternehmen, nicht über alles Mögliche.</p></details><details><summary data-de="Passt das zu meiner Branche?" data-en="Does it suit my industry?">Passt das zu meiner Branche?</summary><p data-de="Der Assistent lernt aus Ihren Inhalten, nicht aus einer Branchenvorlage. Ob Praxis, Werkstatt, Restaurant oder Kanzlei: Er antwortet, was auf Ihrer Seite steht, auf Wunsch in vielen Sprachen." data-en="The assistant learns from your content, not an industry template. Clinic, workshop, restaurant or law firm: it answers what your site says, in many languages if you like.">Der Assistent lernt aus Ihren Inhalten, nicht aus einer Branchenvorlage. Ob Praxis, Werkstatt, Restaurant oder Kanzlei: Er antwortet, was auf Ihrer Seite steht, auf Wunsch in vielen Sprachen.</p></details><details><summary data-de="Wo werden meine Daten gespeichert?" data-en="Where is my data stored?">Wo werden meine Daten gespeichert?</summary><p data-de="Auf Servern in der EU. Gespräche werden nach 90 Tagen automatisch gelöscht und nicht zum Training von KI-Modellen verwendet." data-en="On servers in the EU. Conversations are deleted automatically after 90 days and are never used to train AI models.">Auf Servern in der EU. Gespräche werden nach 90 Tagen automatisch gelöscht und nicht zum Training von KI-Modellen verwendet.</p></details><details><summary data-de="Was passiert, wenn mein Kontingent aufgebraucht ist?" data-en="What happens when my quota runs out?">Was passiert, wenn mein Kontingent aufgebraucht ist?</summary><p data-de="Besucher sehen einen neutralen Hinweis, dass der Assistent gerade nicht verfügbar ist. Auf Wunsch erfasst er stattdessen Kontaktdaten. Vorher informieren wir Sie per E-Mail." data-en="Visitors see a neutral notice that the assistant is unavailable. If you like, it collects contact details instead. We email you beforehand.">Besucher sehen einen neutralen Hinweis, dass der Assistent gerade nicht verfügbar ist. Auf Wunsch erfasst er stattdessen Kontaktdaten. Vorher informieren wir Sie per E-Mail.</p></details><details><summary data-de="Brauche ich einen Entwickler?" data-en="Do I need a developer?">Brauche ich einen Entwickler?</summary><p data-de="Nein. Sie bekommen eine Zeile Code zum Einfügen. Betreut jemand anderes Ihre Seite, leiten Sie ihm die Zeile weiter. Das dauert wenige Minuten." data-en="No. You get one line of code to paste. If someone else looks after your site, forward them the line. It takes a few minutes.">Nein. Sie bekommen eine Zeile Code zum Einfügen. Betreut jemand anderes Ihre Seite, leiten Sie ihm die Zeile weiter. Das dauert wenige Minuten.</p></details></div></div></section>
 
-<section class="block" id="pricing" style="padding-top:24px">
-  <div class="wrap">
-    <div class="head">
-      <h2 data-de="Ein Preis. Keine versteckten KI-Kosten." data-en="One price. No hidden AI costs.">Ein Preis. Keine versteckten KI-Kosten.</h2>
-      <p data-de="Wählen Sie den Tarif, der zu Ihrem Anfragevolumen passt. Monatlich kündbar." data-en="Pick the plan that matches your enquiry volume. Cancel monthly.">Wählen Sie den Tarif, der zu Ihrem Anfragevolumen passt. Monatlich kündbar.</p>
-    </div>
-    <div class="plans"><table>
-<thead><tr><th></th><th><span class="nm">Start</span><span class="pr"><b>0 €</b> <span data-de="/ Monat" data-en="/ month">/ Monat</span></span><a href="mailto:hello@example.com" class="btn ghost" data-de="Kostenlos testen" data-en="Try for free">Kostenlos testen</a></th><th><span class="nm" data-de="Wachstum" data-en="Growth">Wachstum</span><span class="pr"><b>39 €</b> <span data-de="/ Monat" data-en="/ month">/ Monat</span></span><a href="mailto:hello@example.com" class="btn ghost" data-de="Anfragen" data-en="Enquire">Anfragen</a></th><th class="hl"><span class="nm">Pro</span><span class="pr"><b>89 €</b> <span data-de="/ Monat" data-en="/ month">/ Monat</span></span><a href="mailto:hello@example.com" class="btn" data-de="Anfragen" data-en="Enquire">Anfragen</a></th><th><span class="nm">Business</span><span class="pr"><b>179 €</b> <span data-de="/ Monat" data-en="/ month">/ Monat</span></span><a href="mailto:hello@example.com" class="btn ghost" data-de="Anfragen" data-en="Enquire">Anfragen</a></th></tr></thead>
-<tbody>
-<tr class="vol"><td data-de="Nachrichten pro Monat" data-en="Messages per month">Nachrichten pro Monat</td><td>100</td><td>4.000</td><td class="hl">16.000</td><td>80.000</td></tr>
-<tr><td data-de="Entspricht etwa … Gesprächen" data-en="About this many conversations">Entspricht etwa … Gesprächen</td><td>45</td><td>1.800</td><td class="hl">7.000</td><td>36.000</td></tr>
-<tr><td data-de="Inhalte Ihrer Website aktualisieren" data-en="Website content refresh">Inhalte Ihrer Website aktualisieren</td><td data-de="einmalig" data-en="once">einmalig</td><td data-de="wöchentlich" data-en="weekly">wöchentlich</td><td class="hl" data-de="alle 3 Tage" data-en="every 3 days">alle 3 Tage</td><td data-de="täglich" data-en="daily">täglich</td></tr>
-<tr><td data-de="Antworten aus Ihren eigenen Inhalten" data-en="Answers from your own content">Antworten aus Ihren eigenen Inhalten</td><td><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-<tr><td data-de="12 fertige Chat-Designs" data-en="12 ready-made chat designs">12 fertige Chat-Designs</td><td><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-<tr><td data-de="Auf beliebig vielen Websites nutzbar" data-en="Use on any number of websites">Auf beliebig vielen Websites nutzbar</td><td><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-<tr><td data-de="Alle Gespräche mitlesen" data-en="Read every conversation">Alle Gespräche mitlesen</td><td><span class="x" aria-label="nein">–</span></td><td><span class="y" aria-label="ja">✓</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-<tr><td data-de="Kontaktdaten Ihrer Interessenten" data-en="Your leads’ contact details">Kontaktdaten Ihrer Interessenten</td><td><span class="x" aria-label="nein">–</span></td><td><span class="y" aria-label="ja">✓</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-<tr><td data-de="Termin-Button im Chat" data-en="Booking button in the chat">Termin-Button im Chat</td><td><span class="x" aria-label="nein">–</span></td><td><span class="y" aria-label="ja">✓</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-<tr><td data-de="Eigene Farben und Schrift" data-en="Your own colours and font">Eigene Farben und Schrift</td><td><span class="x" aria-label="nein">–</span></td><td><span class="x" aria-label="nein">–</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-<tr><td data-de="Besucher können Fotos senden" data-en="Visitors can send photos">Besucher können Fotos senden</td><td><span class="x" aria-label="nein">–</span></td><td><span class="x" aria-label="nein">–</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-<tr><td data-de="Statistiken und offene Fragen" data-en="Statistics and unanswered questions">Statistiken und offene Fragen</td><td><span class="x" aria-label="nein">–</span></td><td><span class="x" aria-label="nein">–</span></td><td class="hl"><span class="y" aria-label="ja">✓</span></td><td><span class="y" aria-label="ja">✓</span></td></tr>
-</tbody></table></div>
-    <p class="fine" data-de="Jeder Tarif enthält einen Chatbot, jeder weitere kostet 9 € pro Monat (nur in bezahlten Tarifen). Gezählt werden nur Besucherfragen. Für größere Teams oder besondere Anforderungen erstellen wir Ihnen ein individuelles Angebot." data-en="Every plan includes one chatbot; each additional one costs €9 per month (paid plans only). Only visitor questions are counted. For larger teams or special requirements we'll put together a custom offer.">Jeder Tarif enthält einen Chatbot, jeder weitere kostet 9 € pro Monat (nur in bezahlten Tarifen). Gezählt werden nur Besucherfragen. Für größere Teams oder besondere Anforderungen erstellen wir Ihnen ein individuelles Angebot.</p>
-  </div>
-</section>
-
-<section class="block" id="faq" style="padding-top:24px">
-  <div class="wrap">
-    <h2 style="margin-bottom:40px" data-de="Häufige Fragen" data-en="Frequently asked questions">Häufige Fragen</h2>
-    <div class="faq"><details><summary data-de="Ist der Start-Tarif wirklich dauerhaft kostenlos?" data-en="Is the Start plan really free for good?">Ist der Start-Tarif wirklich dauerhaft kostenlos?</summary><p data-de="Ja. Sie erhalten 100 Besucherfragen pro Monat, einen Chatbot, keine Kreditkarte und kein Ablaufdatum. Gezählt werden nur die Fragen Ihrer Besucher, nicht die Antworten des Bots." data-en="Yes. You get 100 visitor questions a month, one chatbot, no credit card and no expiry date. Only your visitors’ questions are counted, never the bot’s replies.">Ja. Sie erhalten 100 Besucherfragen pro Monat, einen Chatbot, keine Kreditkarte und kein Ablaufdatum. Gezählt werden nur die Fragen Ihrer Besucher, nicht die Antworten des Bots.</p></details><details><summary data-de="Ist das nicht einfach ChatGPT?" data-en="Isn’t this just ChatGPT?">Ist das nicht einfach ChatGPT?</summary><p data-de="Nein. Ihr Assistent antwortet auf Basis Ihrer Website, Ihrer FAQs und Dokumente. Er plaudert nicht über alles Mögliche, sondern spricht über Ihr Unternehmen." data-en="No. Your assistant answers from your website, FAQs and documents. It doesn’t chat about everything under the sun, it talks about your business.">Nein. Ihr Assistent antwortet auf Basis Ihrer Website, Ihrer FAQs und Dokumente. Er plaudert nicht über alles Mögliche, sondern spricht über Ihr Unternehmen.</p></details><details><summary data-de="Passt das zu meiner Branche?" data-en="Does it suit my industry?">Passt das zu meiner Branche?</summary><p data-de="Der Assistent lernt aus Ihren Inhalten und nicht aus einer Branchenvorlage. Ob Praxis, Werkstatt, Restaurant oder Kanzlei: Er antwortet, was auf Ihrer Seite steht, auf Wunsch in vielen Sprachen." data-en="The assistant learns from your content, not from an industry template. Clinic, workshop, restaurant or law firm: it answers what your site says, in many languages if you like.">Der Assistent lernt aus Ihren Inhalten und nicht aus einer Branchenvorlage. Ob Praxis, Werkstatt, Restaurant oder Kanzlei: Er antwortet, was auf Ihrer Seite steht, auf Wunsch in vielen Sprachen.</p></details><details><summary data-de="Wo liegen meine Daten?" data-en="Where is my data stored?">Wo liegen meine Daten?</summary><p data-de="Auf Servern in der EU. Gespräche werden nach 90 Tagen automatisch gelöscht und nicht zum Training von KI-Modellen verwendet." data-en="On servers in the EU. Conversations are deleted automatically after 90 days and are never used to train AI models.">Auf Servern in der EU. Gespräche werden nach 90 Tagen automatisch gelöscht und nicht zum Training von KI-Modellen verwendet.</p></details><details><summary data-de="Was passiert, wenn mein Kontingent aufgebraucht ist?" data-en="What happens when my quota runs out?">Was passiert, wenn mein Kontingent aufgebraucht ist?</summary><p data-de="Ihre Besucher sehen einen neutralen Hinweis, dass der Assistent gerade nicht verfügbar ist. Auf Wunsch erfasst er stattdessen Kontaktdaten. Sie werden rechtzeitig per E-Mail informiert." data-en="Visitors see a neutral notice that the assistant is currently unavailable. If you like, it collects contact details instead. You get an email in good time beforehand.">Ihre Besucher sehen einen neutralen Hinweis, dass der Assistent gerade nicht verfügbar ist. Auf Wunsch erfasst er stattdessen Kontaktdaten. Sie werden rechtzeitig per E-Mail informiert.</p></details><details><summary data-de="Brauche ich einen Entwickler?" data-en="Do I need a developer?">Brauche ich einen Entwickler?</summary><p data-de="Nein. Sie bekommen eine Zeile Code, die Sie auf Ihrer Website einfügen. Wenn jemand anderes Ihre Seite betreut, schicken Sie ihm die Zeile weiter. Das dauert wenige Minuten." data-en="No. You get one line of code to add to your website. If someone else looks after your site, just forward them the line. It takes a few minutes.">Nein. Sie bekommen eine Zeile Code, die Sie auf Ihrer Website einfügen. Wenn jemand anderes Ihre Seite betreut, schicken Sie ihm die Zeile weiter. Das dauert wenige Minuten.</p></details></div>
-  </div>
-</section>
-
-<section class="cta" id="contact">
-  <div class="wrap">
-    <div>
-      <h2 data-de="Welche Aufgabe soll Ihr Team als Erstes los sein?" data-en="Which task should your team hand off first?">Welche Aufgabe soll Ihr Team als Erstes los sein?</h2>
-      <p data-de="Schreiben Sie uns kurz. Wir melden uns mit einer ehrlichen Einschätzung." data-en="Send us a short message. We'll reply with an honest assessment.">Schreiben Sie uns kurz. Wir melden uns mit einer ehrlichen Einschätzung.</p>
-    </div>
-    <a href="mailto:hello@example.com" class="btn" data-de="E-Mail schreiben" data-en="Send an email">E-Mail schreiben</a>
-  </div>
-</section>
+<section class="cta" id="contact"><div class="wrap">
+<div><h2 data-de="Bereit für Ihren eigenen KI-Assistenten?" data-en="Ready for your own AI assistant?">Bereit für Ihren eigenen KI-Assistenten?</h2><p data-de="Schreiben Sie uns kurz, was Ihr Team entlasten soll. Wir melden uns mit einer ehrlichen Einschätzung." data-en="Tell us briefly what should take load off your team. We’ll reply with an honest assessment.">Schreiben Sie uns kurz, was Ihr Team entlasten soll. Wir melden uns mit einer ehrlichen Einschätzung.</p></div>
+<a class="btn amb" href="mailto:hello@example.com" data-de="E-Mail schreiben" data-en="Send an email">E-Mail schreiben</a>
+</div></section>
 </main>
 
-<footer>
-  <div class="wrap foot">
-    <div>© 2026 KlarAI Solutions</div>
-    <nav>
-      <a href="impressum.html" data-de="Impressum" data-en="Legal Notice">Impressum</a>
-      <a href="datenschutz.html" data-de="Datenschutz" data-en="Privacy Policy">Datenschutz</a>
-      <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
-    </nav>
-  </div>
-</footer>
+<footer><div class="wrap">
+<div class="fg">
+<div><a href="#" class="logo" aria-label="KlarAI"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c3a"/><path d="M8 9h16v10h-8l-5 4v-4H8z" fill="#fff"/><circle cx="13" cy="14" r="1.4" fill="#0f4c3a"/><circle cx="16" cy="14" r="1.4" fill="#0f4c3a"/><circle cx="19" cy="14" r="1.4" fill="#0f4c3a"/></svg><span>Klar<em>AI</em></span></a><p data-de="KI-Assistenten und Automatisierung für kleine und mittelständische Unternehmen." data-en="AI assistants and automation for small and medium-sized businesses.">KI-Assistenten und Automatisierung für kleine und mittelständische Unternehmen.</p></div>
+<div><h4 data-de="Angebot" data-en="Offer">Angebot</h4><ul><li><a href="#features" data-de="Leistungen" data-en="Features">Leistungen</a></li><li><a href="#pricing" data-de="Preise" data-en="Pricing">Preise</a></li><li><a href="#faq" data-de="FAQ" data-en="FAQ">FAQ</a></li></ul></div>
+<div><h4 data-de="Rechtliches" data-en="Legal">Rechtliches</h4><ul><li><a href="impressum.html" data-de="Impressum" data-en="Legal notice">Impressum</a></li><li><a href="datenschutz.html" data-de="Datenschutz" data-en="Privacy policy">Datenschutz</a></li><li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li></ul></div>
+</div>
+<div class="cp">© 2026 KlarAI Solutions</div></div></footer>
 
 <script>
-function setLanguage(language) {
-  document.documentElement.lang = language;
-  document.querySelectorAll("[data-de]").forEach(function (el) {
-    el.innerHTML = el.getAttribute("data-" + language);
-  });
-  document.getElementById("deBtn").classList.toggle("active", language === "de");
-  document.getElementById("enBtn").classList.toggle("active", language === "en");
-  document.title = language === "de"
-    ? "KlarAI Solutions | KI-Lösungen für Unternehmen"
-    : "KlarAI Solutions | AI Solutions for Business";
+function setLanguage(l){
+document.documentElement.lang=l;
+document.querySelectorAll("[data-de]").forEach(function(e){e.innerHTML=e.getAttribute("data-"+l)});
+document.getElementById("deBtn").classList.toggle("active",l==="de");
+document.getElementById("enBtn").classList.toggle("active",l==="en");
+document.title=l==="de"?"KlarAI Solutions | KI-Lösungen für Unternehmen":"KlarAI Solutions | AI Solutions for Business";
 }
 </script>
 
