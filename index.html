@@ -143,6 +143,9 @@ form.f input:focus,form.f textarea:focus{outline:3px solid var(--mint);border-co
 .cons{display:flex;gap:10px;font-size:14px;color:var(--mute);align-items:flex-start}.cons input{margin-top:4px;accent-color:var(--g)}
 .cons a{color:var(--g)}
 .hint{font-size:13.5px;color:var(--mute)}
+.ck{position:fixed;left:16px;right:16px;bottom:16px;max-width:780px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 50px -20px rgba(10,50,38,.5);padding:20px 22px;z-index:100;display:none;gap:16px 20px;align-items:center;flex-wrap:wrap}
+.ck.on{display:flex}.ck p{flex:1 1 320px;font-size:14.5px;color:var(--mute);line-height:1.5}.ck a{color:var(--g)}
+.ck .row{display:flex;gap:10px}.ck button{font-family:var(--f);cursor:pointer}
 .scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .sc{background:var(--w);border:1px solid var(--line);border-radius:16px;padding:30px}
 .sc.no{background:transparent;border-style:dashed}
@@ -216,6 +219,11 @@ nav.main a:not(.btn){display:none}
 <div class="res"><b id="hrs">13</b><p data-de="Stunden pro Monat, die Ihr Team zurückgewinnen könnte" data-en="hours per month your team could win back">Stunden pro Monat, die Ihr Team zurückgewinnen könnte</p><small data-de="Schätzung: Wir gehen davon aus, dass der Assistent rund 60 % der Routineanfragen selbstständig beantwortet. Das Ergebnis hängt von Ihrer Branche ab." data-en="Estimate: we assume the assistant answers around 60% of routine enquiries on its own. Results depend on your industry.">Schätzung: Wir gehen davon aus, dass der Assistent rund 60 % der Routineanfragen selbstständig beantwortet. Das Ergebnis hängt von Ihrer Branche ab.</small></div>
 </div></section>
 
+<div class="ck" id="ck" role="dialog" aria-label="Cookie-Einstellungen">
+<p data-de="Wir möchten mit Google Analytics anonyme Statistiken über die Nutzung dieser Website erstellen. Dafür setzen wir Cookies, aber nur mit Ihrer Einwilligung. Mehr in der <a href='datenschutz.html'>Datenschutzerklärung</a>." data-en="We would like to use Google Analytics to create anonymous statistics about how this website is used. This uses cookies, but only with your consent. More in the <a href='datenschutz.html'>privacy policy</a>.">Wir möchten mit Google Analytics anonyme Statistiken über die Nutzung dieser Website erstellen. Dafür setzen wir Cookies, aber nur mit Ihrer Einwilligung. Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+<div class="row"><button class="btn sm out" onclick="setConsent('no')" data-de="Ablehnen" data-en="Decline">Ablehnen</button><button class="btn sm" onclick="setConsent('yes')" data-de="Akzeptieren" data-en="Accept">Akzeptieren</button></div>
+</div>
+
 <script>
 /* Rechner: eigenes Script, funktioniert unabhängig vom Rest */
 function calc(){
@@ -263,9 +271,31 @@ calc();
 <div class="fg">
 <div><a href="#" class="logo" aria-label="Bakwa Digital"><span class="wm"><b>Bakwa</b><small>Digital</small></span></a><p data-de="KI-Chatbots für die Website kleiner und mittelständischer Unternehmen." data-en="AI chatbots for the websites of small and medium-sized businesses.">KI-Chatbots für die Website kleiner und mittelständischer Unternehmen.</p></div>
 <div><h4 data-de="Angebot" data-en="Offer">Angebot</h4><ul><li><a href="#features" data-de="Leistungen" data-en="Features">Leistungen</a></li><li><a href="#pricing" data-de="Preise" data-en="Pricing">Preise</a></li><li><a href="#faq" data-de="FAQ" data-en="FAQ">FAQ</a></li></ul></div>
-<div><h4 data-de="Rechtliches" data-en="Legal">Rechtliches</h4><ul><li><a href="impressum.html" data-de="Impressum" data-en="Legal notice">Impressum</a></li><li><a href="datenschutz.html" data-de="Datenschutz" data-en="Privacy policy">Datenschutz</a></li><li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li></ul></div>
+<div><h4 data-de="Rechtliches" data-en="Legal">Rechtliches</h4><ul><li><a href="impressum.html" data-de="Impressum" data-en="Legal notice">Impressum</a></li><li><a href="datenschutz.html" data-de="Datenschutz" data-en="Privacy policy">Datenschutz</a></li><li><a href="#" onclick="showConsent();return false" data-de="Cookie-Einstellungen" data-en="Cookie settings">Cookie-Einstellungen</a></li><li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li></ul></div>
 </div>
 <div class="cp">© 2026 Bakwa Digital</div></div></footer>
+
+<script>
+/* Google Analytics: wird erst nach Einwilligung geladen */
+var GA_ID="G-79S6Z5RR4Y";
+function loadGA(){
+if(window.gaLoaded)return;window.gaLoaded=true;window["ga-disable-"+GA_ID]=false;
+var t=document.createElement("script");t.async=true;t.src="https://www.googletagmanager.com/gtag/js?id="+GA_ID;document.head.appendChild(t);
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};
+gtag("js",new Date());gtag("config",GA_ID);
+}
+function getConsent(){try{return localStorage.getItem("bk_consent")}catch(e){return null}}
+function setConsent(v){
+try{localStorage.setItem("bk_consent",v)}catch(e){}
+document.getElementById("ck").classList.remove("on");
+if(v==="yes"){loadGA()}else{
+window["ga-disable-"+GA_ID]=true;
+document.cookie.split(";").forEach(function(c){var n=c.split("=")[0].trim();if(n.indexOf("_ga")===0){document.cookie=n+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/"}});
+}
+}
+function showConsent(){document.getElementById("ck").classList.add("on")}
+if(getConsent()==="yes"){loadGA()}else if(getConsent()!=="no"){showConsent()}
+</script>
 
 <!-- CHATBASE AI CHATBOT -->
 <script src="https://www.siluxchat.com/static/widget.js" data-tenant="a-naaser2008"></script>
